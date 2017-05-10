@@ -1,0 +1,24 @@
+<?php $brands = $this->getBrands(); ?>
+<?php if ($brands->getSize() > 0): ?>
+<table>
+  <thead>
+    <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Logo</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach ($brands as $brand): ?>
+	     <tr>
+            <th><?php echo $brand->name; ?></th>
+            <th><?php echo $brand->description; ?></th>
+            <th>
+        			<img src="<?php echo Mage::helper('esgi_brand')->getImageUrl($brand->getImageUrl()); ?>" title="<?php echo $brand->getName(); ?>"></th>
+       </tr>
+	<?php endforeach; ?>
+</tbody>
+</table>
+<?php else: ?>
+<h2>No brands defined</h2>
+<?php endif; ?>
