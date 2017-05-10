@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <esgi_brand_index_index>
+        <reference name="content">
+            <block type="esgi_brand/brand"  name="esgi_brand.brand" template="esgi/brand.phtml" />
+        </reference>
+    </esgi_brand_index_index>
+</layout>

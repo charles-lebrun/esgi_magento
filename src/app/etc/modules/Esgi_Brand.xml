@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Esgi_Brand>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Esgi_Brand>
+    </modules>
+</config>
