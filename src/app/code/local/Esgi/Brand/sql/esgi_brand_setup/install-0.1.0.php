@@ -13,7 +13,7 @@ $brandTable = $installer->getConnection()
 	))
 	->addColumn('name', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array())
 	->addColumn('logo', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array())
-	->addColumn('description', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array());
+	->addColumn('description', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array())
 	->addColumn('slug', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array());
 $installer->getConnection()->createTable($brandTable);
 
