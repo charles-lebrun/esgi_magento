@@ -3,8 +3,7 @@ services:
   filer:
     build: ./docker/apache-php
     ports:
-      - 80:80
-      - 443:443
+      - 127.0.0.1:80:80
     links:
       - bdd:bdd
     volumes:
@@ -12,7 +11,7 @@ services:
   bdd:
     image: mariadb:10.0.24
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: toor
       MYSQL_USER: site_magento
@@ -23,6 +22,6 @@ services:
     depends_on:
       - bdd
     ports:
-      - 8080:80
+      - 127.0.0.1:8080:80
     environment:
       PMA_HOST: bdd
