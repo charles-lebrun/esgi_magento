@@ -17,7 +17,8 @@ class Esgi_Brand_Model_Resource_Brand extends Mage_Core_Model_Resource_Db_Abstra
 		/**
 		 * create a slug
 		 */
-		$this->_prepareUrlKey($object);
+		if ($object->isObjectNew())
+			$this->_prepareUrlKey($object);
 
 		parent::_beforeSave($object);
 
@@ -27,7 +28,20 @@ class Esgi_Brand_Model_Resource_Brand extends Mage_Core_Model_Resource_Db_Abstra
 
 	protected function _prepareUrlKey(&$object)
 	{
-		$object->setSlug(Mage::getModel('catalog/product_url')->formatUrlKey( $object->getName() ));
+		// check uniq slug
+		$read = Mage::getSingleton('core/resource')->getConnection('core_read');
+		$urlKey = Mage::getModel('catalog/product_url')->formatUrlKey($object->getName());
+
+		$sql = 'SELECT * FROM esgi_brand_brand WHERE slug = ?';
+		$row = $read->fetchRow($sql, array($urlKey));
+		$idx = 1;
+		while ($row != false) {
+			$urlKey = Mage::getModel('catalog/product_url')->formatUrlKey($object->getName()) . '-' . $idx;
+			$idx++;
+			$row = $read->fetchRow($sql, array($urlKey));
+		}
+
+		$object->setSlug($urlKey);
 		return $this;
 	}
 
