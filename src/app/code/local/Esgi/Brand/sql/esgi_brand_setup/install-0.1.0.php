@@ -22,7 +22,7 @@ $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'brand_id', array(
 	'group'         => 'General',
 	'label'         => 'Brand',
 	'input'         => 'select',
-	'source'        => 'esgi_brand/source_brand',
+	'source'        => 'esgi_brand/brand',
 ));
 
 $installer->endSetup();
