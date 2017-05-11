@@ -12,7 +12,7 @@
 		<h2>Products</h2>
 		<ul>
 			<?php foreach ($productCollection as $_product): ?>
-				<li><a href="<?php echo $this->getUrl('catalog/product/view', array('id' => $_product->getId())); ?>" title="<?php echo $this->escapeHtml($_product->getName()); ?>"><?php echo $_product->getName(); ?></a></li>
+                <li><a href="<?php echo $this->getUrl('catalog/product/view', array('id' => $_product->getId())); ?>" title="<?php echo $this->escapeHtml($_product->getName()); ?>"><?php echo $_product->getName(); ?></a></li>
 			<?php endforeach; ?>
 		</ul>
 

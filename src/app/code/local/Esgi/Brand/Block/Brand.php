@@ -23,9 +23,12 @@ class Esgi_Brand_Block_Brand extends Mage_Core_Block_Template
 			return array();
 		}
 
-		return Mage::getModel('catalog/product')->getCollection()
-			->addAttributeToSelect('name')
-			->addAttributeToFilter('brand_id', $brand->getId())
+		return Mage::getResourceModel('esgi_brand/brand_product_collection')
+			->addAttributeToSelect('name', 'url')
+			->addAttributeToFilter('status', array('eq' => Mage_Catalog_Model_Product_Status::STATUS_ENABLED))
+			->addAttributeToFilter('visibility', array('neq' => Mage_Catalog_Model_Product_Visibility::VISIBILITY_NOT_VISIBLE))
+			->addBrandFilter($brand)
 			->setOrder('name', 'ASC');
+
 	}
 }
