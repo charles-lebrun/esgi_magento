@@ -46,11 +46,18 @@ class Esgi_Brand_Block_Adminhtml_Brand_Grid extends Mage_Adminhtml_Block_Widget_
 			'index'  => 'name'
 		));
 
-    $this->addColumn('description', array(
+    	$this->addColumn('description', array(
 			'header' => $this->__('Description'),
 			'align'  => 'right',
 			'width'  => '100px',
 			'index'  => 'name'
+		));
+
+		$this->addColumn('slug', array(
+			'header' => $this->__('Slug'),
+			'align'  => 'right',
+			'width'  => '100px',
+			'index'  => 'slug'
 		));
 
 		return parent::_prepareColumns();
