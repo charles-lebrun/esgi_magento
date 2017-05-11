@@ -62,7 +62,7 @@ class Esgi_Brand_Adminhtml_Brand_BrandController extends Mage_Adminhtml_Controll
 		if ($data = $this->getRequest()->getPost()) {
 
 			$delete = (!isset($data['logo']['delete']) || $data['logo']['delete'] != '1') ? false : true;
-			$data['image_url'] = $this->_saveImage('logo', $delete);
+			$data['logo'] = $this->_saveImage('logo', $delete);
 
 			/** @var Esgi_Brand_Model_Brand $brand */
 			$brand = Mage::getModel('esgi_brand/brand');
@@ -191,8 +191,12 @@ class Esgi_Brand_Adminhtml_Brand_BrandController extends Mage_Adminhtml_Controll
 				$uploader->setAllowRenameFiles(false);
 				$uploader->setFilesDispersion(false);
 				$path = Mage::getBaseDir('media') . DS . 'brand' . DS;
-				$uploader->save($path, $_FILES[$imageAttr]['name']);
-				$image = $_FILES[$imageAttr]['name'];
+				$filename = $_FILES[$imageAttr]['name'];
+				$ext = pathinfo($filename, PATHINFO_EXTENSION);
+				$filename = time();
+				$filename = $filename . '.' . $ext;
+				$uploader->save($path, $filename);
+				$image = $filename;
 			} catch (Exception $e) {
 				Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
 				return $this->_redirect('*/*/edit', array('id' => $this->getRequest()->getParam('id')));

@@ -14,7 +14,7 @@
             <th><?php echo $brand->name; ?></th>
             <th><?php echo $brand->description; ?></th>
             <th>
-        			<img src="<?php echo Mage::helper('esgi_brand')->getImageUrl($brand->getImageUrl()); ?>" title="<?php echo $brand->getName(); ?>"></th>
+        			<img width="200px" src="<?php  echo Mage::helper('esgi_brand')->getImageUrl($brand->getLogo()); ?>" title="<?php echo $brand->getName(); ?>"></th>
        </tr>
 	<?php endforeach; ?>
 </tbody>
