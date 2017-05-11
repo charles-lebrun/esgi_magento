@@ -18,4 +18,27 @@ class Esgi_Brand_Model_Brand extends Mage_Core_Model_Abstract
 		$this->_init('esgi_brand/brand');
 	}
 
+
+	public function getAllOptions()
+	{
+		$brandCollection = Mage::getModel('esgi_brand/brand')->getCollection()
+			->setOrder('name', 'ASC');
+
+		$options = array(
+			array(
+				'label' => '',
+				'value' => '',
+			),
+		);
+
+		foreach ($brandCollection as $_brand) {
+			$options[] = array(
+				'label' => $_brand->getName(),
+				'value' => $_brand->getId(),
+			);
+		}
+
+		return $options;
+	}
+
 }

@@ -1,24 +1,17 @@
-<?php $brands = $this->getBrands(); ?>
-<?php if ($brands->getSize() > 0): ?>
-<table>
-  <thead>
-    <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Logo</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach ($brands as $brand): ?>
-	     <tr>
-            <th><?php echo $brand->name; ?></th>
-            <th><?php echo $brand->description; ?></th>
-            <th>
-        			<img width="200px" src="<?php  echo Mage::helper('esgi_brand')->getImageUrl($brand->getLogo()); ?>" title="<?php echo $brand->getName(); ?>"></th>
-       </tr>
-	<?php endforeach; ?>
-</tbody>
-</table>
+<h1><?php echo $this->__('Brand List'); ?></h1>
+
+<?php $brandCollection = $this->getBrands();
+?>
+<?php if ($brandCollection->getSize() > 0): ?>
+
+    <ul>
+		<?php foreach ($brandCollection as $_brand): ?>
+            <li><a href="<?php echo  Mage::helper('esgi_brand')->getBrandUrl($_brand); ?>" title="<?php echo $this->escapeHtml($_brand->getName()); ?>"><?php echo $_brand->getName(); ?></a></li>
+		<?php endforeach; ?>
+    </ul>
+
 <?php else: ?>
-<h2>No brands defined</h2>
+
+	<?php echo $this->__('There are no brands to display at this time.'); ?>
+
 <?php endif; ?>

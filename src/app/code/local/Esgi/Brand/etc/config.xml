@@ -34,6 +34,7 @@
             <esgi_brand_setup>
                 <setup>
                     <module>Esgi_Brand</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>

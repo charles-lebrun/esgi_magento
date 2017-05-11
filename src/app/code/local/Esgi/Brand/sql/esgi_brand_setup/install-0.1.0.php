@@ -17,4 +17,12 @@ $brandTable = $installer->getConnection()
 	->addColumn('slug', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array());
 $installer->getConnection()->createTable($brandTable);
 
+// add a new product attribute to associate a brand to each product
+$installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, 'brand_id', array(
+	'group'         => 'General',
+	'label'         => 'Brand',
+	'input'         => 'select',
+	'source'        => 'esgi_brand/source_brand',
+));
+
 $installer->endSetup();
