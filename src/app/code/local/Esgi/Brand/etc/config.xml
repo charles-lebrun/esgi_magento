@@ -27,6 +27,9 @@
                     <brand>
                         <table>esgi_brand_brand</table>
                     </brand>
+                    <brand_product>
+                      <table>esgi_brand_product</table>
+                    </brand_product>
                 </entities>
             </esgi_brand_resource>
         </models>
@@ -34,7 +37,6 @@
             <esgi_brand_setup>
                 <setup>
                     <module>Esgi_Brand</module>
-                    <class>Mage_Eav_Model_Entity_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>
