@@ -50,7 +50,7 @@ class Esgi_Brand_Block_Adminhtml_Brand_Grid extends Mage_Adminhtml_Block_Widget_
 			'header' => $this->__('Description'),
 			'align'  => 'right',
 			'width'  => '100px',
-			'index'  => 'name'
+			'index'  => 'description'
 		));
 
 		$this->addColumn('slug', array(
