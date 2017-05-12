@@ -2,7 +2,9 @@
 
 class Esgi_Brand_Block_Adminhtml_Brand_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-
+	/**
+	 * @return Mage_Adminhtml_Block_Widget_Form
+	 */
 	protected function _prepareForm()
 	{
 		$form = new Varien_Data_Form(array(

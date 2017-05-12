@@ -20,7 +20,9 @@ class Esgi_Brand_Model_Brand extends Mage_Core_Model_Abstract
 		$this->_init('esgi_brand/brand');
 	}
 
-
+	/**
+	 * @return Mage_Core_Model_Abstract|null
+	 */
 	public function getProductInstance(){
 		  if (!$this->_productInstance) {
 		      $this->_productInstance = Mage::getSingleton('esgi_brand/brand_product');
@@ -28,11 +30,17 @@ class Esgi_Brand_Model_Brand extends Mage_Core_Model_Abstract
 		  return $this->_productInstance;
 	}
 
+	/**
+	 * @return Mage_Core_Model_Abstract
+	 */
 	protected function _afterSave() {
 	    $this->getProductInstance()->saveBrandRelation($this);
 	    return parent::_afterSave();
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function getSelectedProducts(){
 	    if (!$this->hasSelectedProducts()) {
 	        $products = array();
@@ -44,6 +52,9 @@ class Esgi_Brand_Model_Brand extends Mage_Core_Model_Abstract
 	    return $this->getData('selected_products');
 	}
 
+	/**
+	 * @return mixed
+	 */
   public function getSelectedProductsCollection(){
     $collection = $this->getProductInstance()->getProductCollection($this);
     return $collection;

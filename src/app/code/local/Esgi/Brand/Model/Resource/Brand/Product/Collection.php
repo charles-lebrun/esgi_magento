@@ -1,8 +1,12 @@
 <?php
-class Esgi_Brand_Model_Resource_Brand_Product_Collection
-    extends Mage_Catalog_Model_Resource_Product_Collection {
-    protected $_joinedFields = false;
-    public function joinFields(){
+class Esgi_Brand_Model_Resource_Brand_Product_Collection extends Mage_Catalog_Model_Resource_Product_Collection {
+
+	protected $_joinedFields = false;
+
+	/**
+	 * @return $this
+	 */
+	public function joinFields(){
         if (!$this->_joinedFields){
             $this->getSelect()->join(
                 array('related' => $this->getTable('esgi_brand/brand_product')),
@@ -13,6 +17,11 @@ class Esgi_Brand_Model_Resource_Brand_Product_Collection
         }
         return $this;
     }
+
+	/**
+	 * @param $brand
+	 * @return $this
+	 */
     public function addBrandFilter($brand){
         if ($brand instanceof Esgi_Brand_Model_Brand){
             $brand = $brand->getId();

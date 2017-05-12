@@ -4,6 +4,12 @@ class Esgi_Brand_Model_Resource_Brand_Product
     protected function  _construct(){
         $this->_init('esgi_brand/brand_product', 'rel_id');
     }
+
+	/**
+	 * @param $brand
+	 * @param $data
+	 * @return $this
+	 */
     public function saveBrandRelation($brand, $data){
         if (!is_array($data)) {
             $data = array();

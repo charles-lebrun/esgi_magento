@@ -13,6 +13,11 @@ class Esgi_Brand_Model_Resource_Product_Collection
         }
         return $this;
     }
+
+	/**
+	 * @param $brand
+	 * @return $this
+	 */
     public function addBrandFilter($brand){
         if ($brand instanceof Esgi_Brand_Model_Brand){
             $brand = $brand->getId();

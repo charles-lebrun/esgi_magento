@@ -213,6 +213,9 @@ class Esgi_Brand_Adminhtml_Brand_BrandController extends Mage_Adminhtml_Controll
 		return $image;
 	}
 
+	/**
+	 *
+	 */
 	public function _initBrand(){
 		$id = $this->getRequest()->getParam('id');
 		/** @var Esgi_Brand_Model_Brand $brand */
@@ -220,6 +223,9 @@ class Esgi_Brand_Adminhtml_Brand_BrandController extends Mage_Adminhtml_Controll
 		Mage::register('current_brand', $brand);
 	}
 
+	/**
+	 *
+	 */
 	public function productsAction(){
     $this->_initBrand(); //if you don't have such a method then replace it with something that will get you the entity you are editing.
     $this->loadLayout();
@@ -228,6 +234,9 @@ class Esgi_Brand_Adminhtml_Brand_BrandController extends Mage_Adminhtml_Controll
     $this->renderLayout();
 	}
 
+	/**
+	 *
+	 */
 	public function productsgridAction(){
     $this->_initBrand();
     $this->loadLayout();

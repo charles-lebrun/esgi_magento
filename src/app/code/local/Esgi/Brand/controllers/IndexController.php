@@ -2,12 +2,18 @@
 
 class Esgi_Brand_IndexController extends Mage_Core_Controller_Front_Action
 {
+	/*
+	 * list of brand
+	*/
 	public function indexAction()
 	{
 		$this->loadLayout();
 		$this->renderLayout();
 	}
 
+	/**
+	 * show a brand with associated products
+	 */
 	public function viewAction()
 	{
 		$brand = Mage::getModel('esgi_brand/brand');

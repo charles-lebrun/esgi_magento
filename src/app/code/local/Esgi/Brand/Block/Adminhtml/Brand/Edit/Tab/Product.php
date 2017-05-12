@@ -2,7 +2,9 @@
 
 class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product extends Mage_Adminhtml_Block_Widget_Grid
 {
-
+	/**
+	 * Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product constructor.
+	 */
 	public function __construct(){
         parent::__construct();
         $this->setId('product_grid');
@@ -13,6 +15,10 @@ class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product extends Mage_Adminhtml_B
             $this->setDefaultFilter(array('in_products'=>1));
         }
     }
+
+	/**
+	 * @return $this
+	 */
     protected function _prepareCollection() {
         $collection = Mage::getResourceModel('catalog/product_collection');
         $collection->addAttributeToSelect('price');
@@ -34,9 +40,17 @@ class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product extends Mage_Adminhtml_B
         parent::_prepareCollection();
         return $this;
     }
+
+	/**
+	 * @return $this
+	 */
      protected function _prepareMassaction(){
         return $this;
     }
+
+	/**
+	 *
+	 */
     protected function _prepareColumns(){
         $this->addColumn('in_products', array(
             'header_css_class'  => 'a-center',
@@ -74,6 +88,9 @@ class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product extends Mage_Adminhtml_B
         ));
     }
 
+	/**
+	 * @return array
+	 */
     protected function _getSelectedProducts(){
         $products = $this->getBrandProducts();
         if (!is_array($products)) {
@@ -82,6 +99,9 @@ class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product extends Mage_Adminhtml_B
         return $products;
     }
 
+	/**
+	 * @return array
+	 */
     public function getSelectedProducts() {
         $products = array();
         $selected = Mage::registry('current_brand')->getSelectedProducts();
@@ -94,20 +114,34 @@ class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product extends Mage_Adminhtml_B
         return $products;
     }
 
+	/**
+	 * @param $item
+	 * @return string
+	 */
     public function getRowUrl($item){
         return '#';
     }
 
+	/**
+	 * @return string
+	 */
     public function getGridUrl(){
         return $this->getUrl('*/*/productsGrid', array(
             'id'=>$this->getBrand()->getId()
         ));
     }
 
+	/**
+	 * @return mixed
+	 */
     public function getBrand(){
         return Mage::registry('current_brand');
     }
 
+	/**
+	 * @param $column
+	 * @return $this
+	 */
     protected function _addColumnFilterToCollection($column){
         // Set custom filter for in product flag
         if ($column->getId() == 'in_products') {
@@ -129,5 +163,4 @@ class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Product extends Mage_Adminhtml_B
         }
         return $this;
     }
-
 }

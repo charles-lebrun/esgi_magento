@@ -2,7 +2,9 @@
 
 class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
-
+	/**
+	 * @return Mage_Adminhtml_Block_Widget_Form
+	 */
 	protected function _prepareForm()
 	{
 		$form = new Varien_Data_Form();
@@ -42,21 +44,33 @@ class Esgi_Brand_Block_Adminhtml_Brand_Edit_Tab_Form extends Mage_Adminhtml_Bloc
 		return parent::_prepareForm();
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getTabLabel()
 	{
 		return Mage::helper('esgi_brand')->__('Brand Information');
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getTabTitle()
 	{
 		return Mage::helper('esgi_brand')->__('Brand Information');
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function canShowTab()
 	{
 		return true;
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function isHidden()
 	{
 		return false;
