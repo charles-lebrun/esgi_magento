@@ -54,6 +54,15 @@
             </esgi_brand_read>
         </resources>
     </global>
+    <stores>
+        <admin>
+            <design>
+                <theme>
+                    <default>esgi</default>
+                </theme>
+            </design>
+        </admin>
+    </stores>
     <frontend>
         <routers>
             <esgi_brand>
